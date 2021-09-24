@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 with open('secret-key.secret') as f:
     lines = f.readlines()
-    SECRET_KEY = lines[0]
+    SECRET_KEY = 'django-insecure-'+lines[0]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
