@@ -16,11 +16,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s6l5*#x_2b#b4_81^lim)8aq)j@ijmm1rgft07f_+^rz#kwvrz'
+with open('secret-key.secret') as f:
+    lines = f.readlines()
+    SECRET_KEY = 'django-insecure-'+lines[0]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
