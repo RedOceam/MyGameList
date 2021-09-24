@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-
-with open('secret-key.secret') as f:
+with open(os.path.join(THIS_FOLDER, 'secret-key.secret')) as f:
     lines = f.readlines()
     SECRET_KEY = 'django-insecure-'+lines[0]
 
