@@ -7,6 +7,7 @@ def CreateNewSecretKey():
     new_key = get_random_secret_key()
     f.write(new_key)
     f.close()
+    print("New secret key created with sucess!")
 
 
 
