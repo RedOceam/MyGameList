@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block guideTitle %}{{game.title}}{% endblock %}
+{% block internalTitle %}{{game.title}}{% endblock %}
+
+
+{% block content %}
+    <img src="{{game.imageUrl}}" width="300" height="300">
+    <p>
+        <blockquote >
+            <div>{{game.synopsis}}</div>
+        </blockquote>
+
+        <h2> Genres:
+            {% for gender in game.genre.all %}
+                <a href="{{gender.get_absolute_url}}">{{gender.name}}</a>&emsp;
+            {% endfor %}
+        </h2>
+
+        <h2> Company:
+            <a href="{{game.company.get_absolute_url}}">{{game.company.name}}</a>
+        </h2>
+
+        <h2> Age Indication: {{game.ageIndication}}</h2>
+    </p>
+{% endblock %}

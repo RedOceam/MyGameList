@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block guideTitle %}Lista de Jogos{% endblock %}
+{% block internalTitle %}Lista de Jogos{% endblock %}
+
+{% block content %}
+    {% for game in game_list %}
+        <article>
+            <h3><a href="{{game.get_absolute_url}}">{{game.title}}</a></h3>
+            <img src={{game.imageUrl}} width="100" height="100">
+
+            <p>
+                Criado por {{game.company}}. Classificacao indicativa: {{game.ageIndication}}  </br>
+                <strong>Generos:</strong>
+                {% for gender in game.genre.all %}
+                    <a href="{{gender.get_absolute_url}}">{{gender.name}}</a> &emsp;
+                {% endfor %}
+                </br>
+                <strong>Sinopse: </strong>{{game.synopsis|truncatewords:20}}
+            </p>
+            </br>
+        </article>
+    {% endfor %}
+{% endblock %}

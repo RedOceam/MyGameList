@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+
+
+{% block guideTitle %}Lista de Generos{% endblock %}
+{% block internalTitle %}Lista de Generos{% endblock %}
+
+
+
+{% block content %}
+    {% for genre in genre_list %}
+        <article>
+            <h3><a href="{{genre.get_absolute_url}}">{{genre.name}}</a></h3>
+            <img src={{genre.image}} width="100" height="100">
+
+            <p>
+                <strong>Description: </strong>{{genre.description|truncatewords:20}}
+            </p>
+        </article>
+        <br />
+    {% endfor %}
+{% endblock %}
