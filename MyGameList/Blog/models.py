@@ -5,6 +5,7 @@ from MyGameList.settings import DEFAULT_IMAGE;
 
 class Genre(models.Model):
     name = models.CharField(max_length=23)
+    description = models.TextField(default="")
     image = models.URLField(default=DEFAULT_IMAGE)
     slug = models.SlugField(unique = True)
 
@@ -13,6 +14,9 @@ class Genre(models.Model):
 
     def get_absolute_url(self):
           return reverse("Blog:genre_detail", kwargs={"slug": self.slug})
+
+    class Meta:
+        ordering = ("name",)
 
 
 

@@ -3,11 +3,20 @@
 
 <head>
     <title>{% block guideTitle %}{% endblock %}</title>
+
+    <style>
+        div {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    </style>
+
 </head>
 
 
+
 <body>
-    <h2>{% block internalTitle %}{% endblock %}</h2>
+    <h1>{% block internalTitle %}{% endblock %}</h1>
     <main>
         {% block content %}
         {% endblock %}

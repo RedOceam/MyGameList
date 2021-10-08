@@ -12,12 +12,12 @@ class GameDetailView(DetailView):
 class GenreListView(ListView):
        model = models.Genre
 
-class GenreDetailView(ListView):
+class GenreDetailView(DetailView):
        model = models.Genre
 
 
 class CompanyListView(ListView):
        model = models.Company
 
-class CompanyDetailView(ListView):
+class CompanyDetailView(DetailView):
        model = models.Company
