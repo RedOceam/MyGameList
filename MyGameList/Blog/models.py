@@ -1,18 +1,29 @@
 from django.db import models
+from django.urls import reverse
+
 
 class Genre(models.Model):
     name = models.CharField(max_length=23)
     slug = models.SlugField(unique = True)
+
     def __str__(self):
-        return self.name;
+        return self.name
+
+    def get_absolute_url(self):
+          return reverse("Blog:genre_detail", kwargs={"slug": self.slug})
 
 
 
 class Company(models.Model):
-    name = models.CharField(max_length=23)
+    name = models.CharField(max_length=26)
     slug = models.SlugField(unique = True)
+
     def __str__(self):
-        return self.name;
+        return self.name
+
+    def get_absolute_url(self):
+         return reverse("Blog:company_detail", kwargs={"slug": self.slug})
+
 
 
 
@@ -22,6 +33,11 @@ class Game(models.Model):
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING)
     genre = models.ManyToManyField(Genre)
     ageIndication = models.PositiveIntegerField()
+    synopsis = models.TextField(default="none")
+    imageUrl = models.URLField(default="https://i.imgur.com/8u3skSq.png")
 
     def __str__(self):
-        return self.title;
+        return self.title
+
+    def get_absolute_url(self):
+          return reverse("Blog:game_detail", kwargs={"slug": self.slug})
