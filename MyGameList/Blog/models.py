@@ -1,9 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from MyGameList.settings import DEFAULT_IMAGE;
 
 
 class Genre(models.Model):
     name = models.CharField(max_length=23)
+    image = models.URLField(default=DEFAULT_IMAGE)
     slug = models.SlugField(unique = True)
 
     def __str__(self):
@@ -34,7 +36,7 @@ class Game(models.Model):
     genre = models.ManyToManyField(Genre)
     ageIndication = models.PositiveIntegerField()
     synopsis = models.TextField(default="none")
-    imageUrl = models.URLField(default="https://i.imgur.com/8u3skSq.png")
+    imageUrl = models.URLField(default=DEFAULT_IMAGE)
 
     def __str__(self):
         return self.title

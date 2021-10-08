@@ -27,6 +27,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+#MY STATIC CONSTANST
+DEFAULT_IMAGE = "https://i.imgur.com/8u3skSq.png"
+
+
 # Application definition
 
 INSTALLED_APPS = [
